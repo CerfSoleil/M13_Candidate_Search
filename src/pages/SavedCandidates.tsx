@@ -48,8 +48,7 @@ const SavedCandidates = () => {
             <tr key={candidates.indexOf(candidate)}>
               <td className="icon">
                 <img src={candidate.avatar_url ? candidate.avatar_url : "./githubLogo.png" } 
-                alt={(candidate.login ? candidate.login : 'user ') + 'avatar'}
-                />
+                alt={(candidate.login ? candidate.login : 'user ') + 'avatar'}/>
               </td>
               <td className="name">
                 {candidate.name ? candidate.name : (
