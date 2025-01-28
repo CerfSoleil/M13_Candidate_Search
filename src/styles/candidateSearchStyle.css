@@ -1,0 +1,53 @@
+.candidate-search {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-module {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.candidate-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    min-width: 300px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem 0 2rem 0;
+    border: 2px solid lightgrey;
+    border-radius: 2rem;
+    background-color: #333;
+}
+
+.candidate-information {
+    display: flex;
+    align-items: left;
+    justify-content: space-between;
+    width:90%;
+    padding: 0.2rem;
+    list-style-type: none;
+}
+
+li p {
+    display: inline-flex;
+    margin: 0 0 0 1rem;
+}
+
+.reject {
+    display: flex;
+    align-items: right;
+    justify-content: right;
+  }
+
+  .candidate-icon {
+    margin: 0 10px;
+    font-size: 24px;
+    color: white;
+    transition: box-shadow 0.3s, color 0.3s;
+    width: 125px;
+    height: 125px;
+  }

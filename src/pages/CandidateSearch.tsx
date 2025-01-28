@@ -3,6 +3,7 @@ import { searchGithub, searchGithubUser } from '../api/API';
 
 import { Candidate } from "../interfaces/Candidate.interface";
 import {saveToLocalStorage, loadFromLocalStorage} from "../api/LocalStorage";
+import "../styles/candidateSearchStyle.css";
 
 const CandidateSearch = () => {
   const [candidate, setCandidate] = useState<Candidate>({} as Candidate);
@@ -73,14 +74,15 @@ const CandidateSearch = () => {
     <div className="search-module">
     <button className="reject" onClick={handleReject}>-</button>
 
-    <section className="candidate-container">
-      <img src={candidate.avatar_url ? candidate.avatar_url : "./githubLogo.png"}
-      alt={(candidate.login ? candidate.login : 'user ') + 'avatar'} 
-      />
-      <ul className="candidate-details">
+    <section className="candidate-card">
+      <a href={candidate.html_url ? candidate.html_url : "http://www.github.com/"} target="_blank" rel="noopener noreferrer">
+      <img className="candidate-icon" src={candidate.avatar_url ? candidate.avatar_url : "./githubLogo.png"}
+      alt={`${candidate.login ? candidate.login : "user"} avatar`}/>
+      </a>
+      <ul className="candidate-information">
         <li className="username">Username:
           <a href={candidate.html_url ? candidate.html_url : "http://www.github.com/"}>
-          {candidate.name ? candidate.name : (candidate.login ? candidate.login : 'Unlisted')}</a>
+          {candidate.name ? candidate.name : (candidate.login ? candidate.login : ' Unlisted')}</a>
         </li>
         <li className="location">Location:
           <p>{candidate.location ? candidate.location : 'Not Public'}</p>
