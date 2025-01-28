@@ -31,7 +31,6 @@ const CandidateSearch = () => {
     let data: Candidate = {} as Candidate;
     if(!hasSavedCandidates) {
       setHasSavedCandidates(false);
-      console.warn("First load.");
       data = await searchGithubUser("octocat");
       await cacheCandidates();
     } else if
