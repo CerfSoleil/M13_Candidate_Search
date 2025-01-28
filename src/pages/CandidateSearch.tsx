@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { searchGithub, searchGithubUser } from '../api/API';
+import { searchGithub, searchGithubUser, fetchRandomGithubUser } from '../api/API';
 
 import { Candidate } from "../interfaces/Candidate.interface";
 import {saveToLocalStorage, loadFromLocalStorage} from "../api/LocalStorage";
@@ -9,7 +9,7 @@ const CandidateSearch = () => {
   const [candidate, setCandidate] = useState<Candidate>({} as Candidate);
   const [candidateCache, setCandidateCache] = useState<Candidate[]>([] as Candidate[]);
   const [savedCandidates, setSavedCandidates] = useState<Candidate[]>(loadFromLocalStorage());
-  const [firstLoad, setFirstLoad] = useState(true);
+  const [hasSavedCandidates, setHasSavedCandidates] = useState<boolean>(loadFromLocalStorage().length > 0);
 
   useEffect(() => {
     if(candidate && candidate.name) {
@@ -29,8 +29,8 @@ const CandidateSearch = () => {
 
   const fetchCandidate = async () => {
     let data: Candidate = {} as Candidate;
-    if(firstLoad) {
-      setFirstLoad(false);
+    if(!hasSavedCandidates) {
+      setHasSavedCandidates(false);
       console.warn("First load.");
       data = await searchGithubUser("octocat");
       await cacheCandidates();
@@ -40,7 +40,7 @@ const CandidateSearch = () => {
       } else {
         console.warn("No cache.");
         await cacheCandidates();
-        data = await searchGithubUser("octocat");
+        data = await fetchRandomGithubUser();
       }
     setCandidate(data);
   };
