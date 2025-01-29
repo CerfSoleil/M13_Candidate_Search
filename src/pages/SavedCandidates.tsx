@@ -46,25 +46,25 @@ const SavedCandidates = () => {
         <tbody>
         {candidates.map((candidate) => (
             <tr key={candidates.indexOf(candidate)}>
-              <td className="icon">
-                <img src={candidate.avatar_url ? candidate.avatar_url : "./githubLogo.png" } 
-                alt={(candidate.login ? candidate.login : 'user ') + 'avatar'}/>
-              </td>
+              <a href={candidate.html_url ? candidate.html_url : "http://www.github.com/"} target="_blank" rel="noopener noreferrer">
+              <img className="candidate-icon" src={candidate.avatar_url ? candidate.avatar_url : "./githubLogo.png"}
+              alt={`${candidate.login ? candidate.login : "user"} avatar`}/>
+              </a>
               <td className="name">
                 {candidate.name ? candidate.name : (
                   candidate.login ? candidate.login : 'None'
                 )}
               </td>
-              <td className={`profile ${candidate.html_url ? "" : "missing-data"}`}>
+              <td className={"profile"}>
                 <a href={candidate.html_url ? candidate.html_url : "about:blank" } target="_blank" rel="noopener noreferrer">Profile</a>
               </td>
-              <td className={`location ${candidate.location ? "" : "missing-data"}`}>
+              <td className={"location"}>
                 {candidate.location ? candidate.location : 'Not Provided'}
               </td>
-              <td className={`company ${candidate.company ? "" : "missing-data"}`}>
+              <td className={"company"}>
                 {candidate.company ? candidate.company : 'None'}
               </td>
-              <td className={`bio ${candidate.bio || candidate.blog ? "" : "missing-data"}`}>
+              <td className={"bio"}>
                 {(candidate.bio || candidate.blog) ? (candidate.bio ? candidate.bio : candidate.blog) : 'None'}
               </td>
               <td>
