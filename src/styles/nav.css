@@ -1,0 +1,15 @@
+.nav {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding: 10px;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+  }
+
+  .nav-link {
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }

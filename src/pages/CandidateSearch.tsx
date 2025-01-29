@@ -68,7 +68,7 @@ const CandidateSearch = () => {
     };
 
   return <div className="candidate-search">
-    <h1>Search <em>Github Users</em></h1>
+    <h1>Search Github Users</h1>
 
     <div className="search-module">
     <button className="reject" onClick={handleReject}>-</button>

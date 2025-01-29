@@ -1,6 +1,14 @@
 .candidate-search {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+.candidate-search h1 {
+  align-items: center;
+  margin-left: 100px;
+  margin-right: 100px;
+  justify-content: center;
 }
 
 .search-module {
